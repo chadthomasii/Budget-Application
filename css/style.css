@@ -1,0 +1,479 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    
+}
+
+body
+{
+    margin: 0;
+    font-family: sans-serif;
+    color: #fff;
+    
+}
+
+#showcase
+{
+   background-color: #004684;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.heading
+{
+     display: flex;
+     margin: 10px;
+     
+}
+
+.heading h1
+{
+    color: #fdb927;
+    font-size: 4em;
+}
+
+
+/********************
+    Cards
+*********************/
+.card-container
+{
+    
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 70px auto;
+    
+}
+
+.card-border
+{
+    padding: 0px 70px;
+}
+
+.card
+{
+    width: 260px;
+    height: 260px;
+    border-radius: 10px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+   
+}
+
+.card:hover
+{
+    transform: scale(1.1);
+}
+
+.card div i 
+{
+    color: #424242;
+    text-align: center;
+   
+}
+
+
+
+.card div h1
+{
+    color: #424242;
+    text-align: center;
+    line-height: 40px;
+}
+
+.card div p
+{
+    color: #424242;
+    text-align: center;
+    font-size: 0.8em;
+    margin: 0 5px;
+}
+
+
+.card-heading
+{
+   
+    text-align: center;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+
+.card-footer
+{
+    text-align: center;
+    height: 20%;
+    position: relative;
+    background-color: #fdb927;
+    border-radius: 1px;
+
+}
+
+.card-footer section
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.3em;
+    color: #fff;
+    
+    
+}
+
+/********************
+    Twitter Feed
+*********************/
+.social
+{
+    background-color: #eeeeee;
+}
+.social-heading
+{
+    color: #424242; 
+    text-align: center;
+  
+}
+
+.social-heading h1
+{
+    padding-top: 50px;
+}
+
+.social-container
+{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+    padding: 40px;
+    padding-bottom: 60px;
+   
+}
+
+
+
+/********************
+
+    Media Queries
+
+********************/
+
+@media (max-width: 1200px) 
+{
+
+    /********************
+
+        Cards
+
+    ********************/
+    .card-border
+    {
+        padding: 0px 50px;
+    }
+
+    .card
+    {
+        width: 200px;
+        height: 200px;
+        
+    
+    }
+
+    .card div i
+    {
+        font-size: 3em;
+       
+    }
+
+    .card div h1
+    {
+        font-size: 1em;
+       
+    }
+
+    .card div p
+    {
+        color: #424242;
+        text-align: center;
+        font-size: 0.7em;
+        margin: 0 5px;
+    }
+
+
+    
+
+}
+
+
+@media (max-width: 870px) 
+{
+    
+    /********************
+
+            Header
+
+    ********************/
+    .heading
+    {
+        display: flex;
+        margin: 10px;
+        
+    }
+
+    #app
+    {
+        height: 70px;
+        width: 70px;
+    
+    
+    }
+    #showcase h1
+    {
+    
+        font-size: 3em;
+        padding: 10px;
+    }
+
+    .search-box-wrapper
+    {
+        display: inline-flex;
+        font-size: 40px;
+        
+    }
+
+    /********************
+
+            Cards
+
+    ********************/
+
+     .card-border
+    {
+        padding: 0px 30px;
+    }
+
+    .card
+    {
+        width: 150px;
+        height: 150px;
+        
+    
+    }
+
+    .card div i
+    {
+        font-size: 2em;
+       
+    }
+
+    .card div h1
+    {
+        font-size: 0.8em;
+        line-height: 30px;
+    }
+
+    .card div p
+    {
+        color: #424242;
+        text-align: center;
+        font-size: 0.5em;
+        margin: 0 5px;
+    }
+
+    .card-footer
+    {
+        text-align: center;
+        height: 20%;
+        position: relative;
+        background-color: #8e44ad;
+        border-radius: 1px;
+
+    }
+
+    .card-footer section
+    {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;        
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.8em;
+        color: #fff;
+        
+        
+    }
+
+
+   
+}
+
+
+@media (max-width: 700px) 
+{
+
+    /********************
+            Header
+    ********************/
+
+    .heading
+    {
+        display: flex;
+        margin: 10px;
+        
+    }
+
+    #app
+    {
+        height: 60px;
+        width: 60px;
+    
+    
+    }
+    #showcase h1
+    {
+    
+        font-size: 3em;
+        padding: 10px;
+    }
+
+    .search-box-wrapper
+    {
+        display: inline-flex;
+        font-size: 30px;
+        
+    }
+
+    /********************
+        Cards
+    ********************/
+    .card-container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 1000px;
+        margin: 20px 0px;
+        
+    }
+    .card-border
+    {
+        padding: 40px 0px;
+    }
+
+    .card
+    {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        
+    }
+
+    .card div i
+    {
+        font-size: 4em;
+        line-height: 40px;
+       
+    }
+
+    .card div h1
+    {
+        font-size: 2em;
+        line-height: 70px;
+       
+    }
+
+    .card div p
+    {
+        color: #424242;
+        text-align: center;
+        font-size: 1em;
+        margin: 0 10px;
+    }
+
+    .card-footer section
+    {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;        
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 2em;
+        color: #fff;
+        
+        
+    }
+
+    
+    
+
+}
+
+@media (max-width: 490px) 
+{
+    /********************
+            Header
+    ********************/
+
+    #app
+    {
+        height: 50px;
+        width: 50px;
+    
+    
+    }
+    #showcase h1
+    {
+        font-size: 2em;
+    }
+
+    .search-box-wrapper
+    {
+        
+        font-size: 22px;
+        
+    }
+
+
+}
+
+@media (max-width: 350px) 
+{
+    /********************
+            Header
+    ********************/
+    .search-box-wrapper
+    {
+        font-size: 19px;   
+    }
+
+    /********************
+            Card
+    ********************/
+    .card
+    {
+        width: 280px;
+        height: 280px;
+    }
+}
