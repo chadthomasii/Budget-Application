@@ -4,29 +4,30 @@
     padding: 0;
 }
 
-html
-{
-    
-}
+
 
 body
 {
     margin: 0;
     font-family: sans-serif;
-    color: #fff;
     
 }
 
 #showcase
 {
    background-color: #004684;
-    height: 40vh;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 
+}
+
+#showcase div  h1
+{
+    font-size: 4em;
 }
 
 .heading
@@ -36,7 +37,7 @@ body
      
 }
 
-.heading h1
+.heading h2
 {
     color: #fdb927;
     font-size: 4em;
@@ -90,7 +91,7 @@ body
 {
     color: #424242;
     text-align: center;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .card div p
@@ -98,7 +99,7 @@ body
     color: #424242;
     text-align: center;
     font-size: 0.8em;
-    margin: 0 5px;
+    margin: 0 7px;
 }
 
 
@@ -169,6 +170,26 @@ body
     padding-bottom: 60px;
    
 }
+
+
+
+
+/********************
+
+       Savings Page
+
+********************/
+
+#savings-header
+{
+    background-color: #eeeeee;
+    height: 100vh;
+    
+   
+}
+
+
+
 
 
 
