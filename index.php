@@ -30,7 +30,16 @@
     </head>
     <body>
 
+    
+
         <header id="showcase">
+
+        <button id="roundButton"><img src="/Budget-Application/img/hamburger.png"/></button>
+        <div id="flyoutMenu">
+            <h2><a href="#">Settings</a></h2>
+            <h2><a href="logout.php">Logout</a></h2>
+            
+        </div>
 
             <div>
                 <h1>Hi, <?php  echo ($_SESSION['name']);?></h1>
@@ -183,12 +192,36 @@
             </div>
             
         </div>
-
-        <div>
-            <a href="logout.php">Logout</a>
-        </div>
-
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <script>
+
+            var roundButton = document.querySelector("#roundButton");
+            var flyoutMenu = document.querySelector("#flyoutMenu");
+
+
+            roundButton.addEventListener("click", showMenu, false);
+
+            flyoutMenu.addEventListener("click", hideMenu, false);
+
+            function showMenu(e)
+            {
+                flyoutMenu.classList.add("show");
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideMenu(e)
+            {
+                flyoutMenu.classList.remove("show");
+                e.stopPropogation();
+
+                document.body.style.overflow = 'auto';
+
+            }
+            
+        </script>
+        
         <script src="js/AddMoney.js"></script>
         
     </body>
