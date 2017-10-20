@@ -22,7 +22,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Aggie Budget</title>
+        <title>Budget Butler</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
   
@@ -42,8 +42,7 @@
                    <h2>Account Balance: $<?php  
                    
                     $data = $database->getBudget($_SESSION['user_id']);
-
-                   echo $data[0]['checkAmount'];
+                   echo number_format($data[0]['checkAmount'], 2);
                    
                    ?>
                    
@@ -56,8 +55,8 @@
 
             <div id="add-money">
 
-                <input type="text" name="fname" placeholder="Add Money"><br>
-                <button>Add</button>
+                <input type="text" name="fname" placeholder="Add Check" class="amountInput" id="amountInput"><br>
+                <button class="calcButton">Add</button>
             
             </div>
 
@@ -184,8 +183,8 @@
             </div>
             
         </div>
-
-      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="js/AddMoney.js"></script>
         
     </body>
 </html>
