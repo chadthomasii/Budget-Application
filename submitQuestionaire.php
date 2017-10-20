@@ -4,6 +4,7 @@ require_once 'core/ErrorReporting.php';
 require_once 'classes/Database.php';
 require_once 'core/functions.php';
 
+
 $data = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -196,3 +197,5 @@ else
 
 $json = json_encode($data); //encode in json
 echo $json;
+
+require_once 'logout.php';

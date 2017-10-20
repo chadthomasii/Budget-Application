@@ -55,7 +55,7 @@
 
             <div id="add-money">
 
-                <input type="text" name="fname" placeholder="Add Check" class="amountInput" id="amountInput"><br>
+                <input type="text" name="fname" placeholder="Enter Check Amount" class="amountInput" id="amountInput"><br>
                 <button class="calcButton">Submit</button>
             
             </div>
@@ -184,7 +184,10 @@
             
         </div>
 
-        <div><a href="logout.php">Logout</a></div>
+        <div>
+            <a href="logout.php">Logout</a>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/AddMoney.js"></script>
         

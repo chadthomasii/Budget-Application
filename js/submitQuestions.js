@@ -77,9 +77,9 @@ $("#question-submit").click(function(e)
         success: function(response)
         {
 
-            response = $.parseJSON(response); //get the response
+            //response = $.parseJSON(response); //get the response
 
-            window.location.href = "./index.php";
+            window.location.href = "./login.php?"; //Go back to the login page
         }  
     });  
 
