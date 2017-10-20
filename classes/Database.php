@@ -7,7 +7,7 @@ class Database
 	private $host	= 'localhost';
 	private $user	= 'root';
 	private $pass	= 'root';
-	private $dbname	= '';
+	private $dbname	= 'Aggie_Budget';
     
     //Database handlers, Error, and Prepeared statement handler
 	private $dbh;
@@ -97,7 +97,7 @@ class Database
         return $this->dbh->lastInsertId();
     }
 
-    public function getRow($table, $id)
+    public function getRowFromID($table, $id)
     {
         //Use the given id to find
         $this->query("SELECT * FROM $table WHERE id = :id");
