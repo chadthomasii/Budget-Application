@@ -1,6 +1,18 @@
 <?php
         require_once 'core/ErrorReporting.php';
         require_once 'classes/Database.php';
+        require_once 'core/functions.php';
+ 
+
+        //Make sure users is not already logged in
+        session_start();
+        if(!isset($_SESSION['user_id']))
+        {
+            header('Location: login.php');
+        }
+
+        
+
         
     
        
@@ -21,14 +33,32 @@
         <header id="showcase">
 
             <div>
-                <h1>Hi, Chad!</h1>
+                <h1>Hi, <?php  echo ($_SESSION['name']);?></h1>
             </div>
 
             <div class="heading">
                <div>
             
-                   <h2>Account Balance: $400</h2>
-               </div>
+                   <h2>Account Balance: $<?php  
+                   
+                    $data = $database->getBudget($_SESSION['user_id']);
+
+                   echo $data[0]['checkAmount'];
+                   
+                   ?>
+                   
+                   
+                   </h2>
+               </div><br>
+
+               
+            </div>
+
+            <div id="add-money">
+
+                <input type="text" name="fname" placeholder="Add Money"><br>
+                <button>Add</button>
+            
             </div>
 
             
@@ -41,11 +71,34 @@
                         <i class="fa fa-cutlery fa-4x" aria-hidden="true"></i>
                         <h1>Food</h1>
                         <p>
-                            Hungry? Check out the reccomended resturaunts in your area that fit your budget! 
+                            <?php
+
+                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+                                $percent = $database->getPercentage($_SESSION['user_id'],'entertainment')[0]['entertainment']; //get the percentage
+
+                                
+
+                                echo calculatePercentages($budget,$percent); // calculate that
+                                
+
+                                
+
+                            ?>
                         </p>
                     </div>
                     <div class="card-footer">
-                        <section>More</section>
+                        <section>
+                        
+                        <?php  
+                   
+                        $data = $database->getPercentage($_SESSION['user_id'],'entertainment');
+
+                        echo $data[0]['entertainment'] . '%';
+                        
+                        ?>
+                        
+                        
+                        </section>
                     </div>
                 </section>
 
@@ -58,11 +111,33 @@
                         <i class="fa fa-envelope-o fa-4x" aria-hidden="true"></i>
                         <h1>Bills</h1>
                         <p>
-                            Look at the Bills for this month here! 
+                            <?php
+
+                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+                                $percent = $database->getPercentage($_SESSION['user_id'],'bills')[0]['bills']; //get the percentage
+
+                                
+
+                                echo calculatePercentages($budget,$percent); // calculate that
+                                
+
+                                
+
+                            ?>
                         </p>
                     </div>
                     <div class="card-footer">
-                        <section>More</section>
+                        <section>
+                        
+                        <?php  
+                   
+                        $data = $database->getPercentage($_SESSION['user_id'],'bills');
+
+                        echo $data[0]['bills'] . '%';
+                        
+                        ?>
+                        
+                        </section>
                     </div>
 
                 </section>
@@ -75,11 +150,33 @@
                         <i class="fa fa-money fa-4x" aria-hidden="true"></i>
                         <h1>Savings</h1>
                         <p>
-                           Rainy day coming up? Let's save some money for it! 
+                            <?php
+
+                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+                                $percent = $database->getPercentage($_SESSION['user_id'],'savings')[0]['savings']; //get the percentage
+
+                                
+
+                                echo calculatePercentages($budget,$percent); // calculate that
+                                
+
+                                
+
+                            ?>
                         </p>
                     </div>
                     <div class="card-footer">
-                        <section>More</section>
+                        <section>
+                        
+                        <?php  
+                   
+                        $data = $database->getPercentage($_SESSION['user_id'],'savings');
+
+                        echo $data[0]['savings'] . '%';
+                        
+                        ?>
+                        
+                        </section>
                     </div>
 
                 </section>

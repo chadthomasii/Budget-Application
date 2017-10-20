@@ -97,10 +97,27 @@ class Database
         return $this->dbh->lastInsertId();
     }
 
-    public function getRowFromID($table, $id)
+    public function rowsCounted()
+    {
+        return $this->stmt->rowCount();
+    }
+
+    public function getBudget($id)
     {
         //Use the given id to find
-        $this->query("SELECT * FROM $table WHERE id = :id");
+        $this->query("SELECT checkAmount FROM budgetprofile WHERE usersid = :id");
+        $this->bind(":id", $id);
+        $this->execute();
+        
+        //give back the 
+        return $this->resultSet();
+
+    }
+
+    public function getPercentage($id,$percentage)
+    {
+        //Use the given id to find
+        $this->query("SELECT $percentage FROM budgetprofile WHERE usersid = :id");
         $this->bind(":id", $id);
         $this->execute();
         

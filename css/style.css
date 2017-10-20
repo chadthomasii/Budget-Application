@@ -44,6 +44,25 @@ body
     font-size: 4em;
 }
 
+#showcase #add-money
+{
+    display: flex;
+    padding: 20px;
+
+}
+
+#showcase input
+{
+   padding: 15px;
+   margin: 5px;
+}
+
+#showcase button
+{
+  padding: 15px;
+  margin: 5px;
+}
+
 
 /********************
     Cards
@@ -92,14 +111,14 @@ body
 {
     color: #424242;
     text-align: center;
-    line-height: 45px;
+    line-height: 60px;
 }
 
 .card div p
 {
     color: #424242;
     text-align: center;
-    font-size: 0.8em;
+    font-size: 3em;
     margin: 0 7px;
 }
 
@@ -136,7 +155,7 @@ body
     padding: 10px;
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 1.3em;
+    font-size: 1.7em;
     color: #fff;
     
     
