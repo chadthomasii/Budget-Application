@@ -25,7 +25,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
     $results = $database->resultSet();
 
     //Login success
-    if(count($results) >= 0)
+    if(count($results) > 0)
     {
         $_SESSION['user_id'] = $results[0]['id'];
         $_SESSION['name'] = $results[0]['name'];
@@ -43,10 +43,11 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
     
     
 }
-else
-{
-    $message = "You must fill out the email and password fields.";
+
+else{
+    $message = "You must fill out all the fields to have the form submitted";
 }
+
     
 ?>
 
@@ -83,13 +84,13 @@ else
       </form>
 
       <?php
-        if(!empty($_POST['email']) && !empty($_POST['password']))
+        
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && $message != null)
         {
-            if(!empty($message))
-            {
-                echo $message;
-            }
+            echo $message;
         }
+
       ?>
 
   

@@ -34,7 +34,7 @@
 
         <header id="showcase">
 
-        <button id="roundButton"><img src="/Budget-Application/img/hamburger.png"/></button>
+        <button id="roundButton"></button>
         <div id="flyoutMenu">
             <h2><a href="#">Settings</a></h2>
             <h2><a href="logout.php">Logout</a></h2>
