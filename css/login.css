@@ -1,9 +1,12 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
 body
 {
     margin: 0px;
     padding: 0px;
     text-align: center;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
 }
 
 input[type="email"], input[type="password"]

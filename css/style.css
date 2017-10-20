@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
 *
 {
     margin: 0;
@@ -9,9 +11,9 @@
 body
 {
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #fff;
-    
+    font-weight: 600;
 }
 
 #showcase

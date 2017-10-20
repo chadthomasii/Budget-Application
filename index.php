@@ -41,8 +41,8 @@
             
                    <h2>Account Balance: $<?php  
                    
-                    $data = $database->getBudget($_SESSION['user_id']);
-                   echo number_format($data[0]['checkAmount'], 2);
+                    $data = $database->getBudget($_SESSION['user_id']); // get the users budget based on ID
+                    echo number_format($data[0]['checkAmount'], 2); //echo their budget amount
                    
                    ?>
                    
@@ -56,7 +56,7 @@
             <div id="add-money">
 
                 <input type="text" name="fname" placeholder="Add Check" class="amountInput" id="amountInput"><br>
-                <button class="calcButton">Add</button>
+                <button class="calcButton">Submit</button>
             
             </div>
 
