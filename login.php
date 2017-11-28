@@ -13,6 +13,15 @@ if(isset($_SESSION['user_id']))
 
 //Empty error
 $message = '';
+
+if(!empty($_GET))
+{
+    if($_GET['message'] == 'questionaire')
+    {
+        echo "Thank you for filling out the questionaire. Please log in";
+    }
+    
+}
   
 //Check to make sure that the users information was submitted to the form and not empty
 if(!empty($_POST['email']) && !empty($_POST['password']))

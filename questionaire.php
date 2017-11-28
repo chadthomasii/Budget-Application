@@ -40,7 +40,7 @@
                     
                 </fieldset>
 
-                Do you go out to eat often?
+                Do you go out to eat, or for entertainment often?
                 <fieldset id="food">
                     Yes <input type="radio" value="food" name="food">
                     No <input type="radio" value="0" name="food">

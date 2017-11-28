@@ -1,0 +1,35 @@
+.button-div
+{
+    margin-top: 10px;
+}
+
+#plus-button
+{
+    width : 100px;
+    height: 100px;
+    background-color: #fdb927;
+    border-radius: 10px;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+   
+}
+
+#plus-button:hover
+{
+    transform: scale(1.1);
+    
+}
+
+.plus
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.plus h1
+{
+    
+}

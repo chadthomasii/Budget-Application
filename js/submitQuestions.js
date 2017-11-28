@@ -77,9 +77,12 @@ $("#question-submit").click(function(e)
         success: function(response)
         {
 
-            //response = $.parseJSON(response); //get the response
+            function headerLocation(message) 
+            {
+                return './login.php?message=' + message;
+            }
 
-            window.location.href = "./login.php?please=yes"; //Go back to the login page
+            window.location.href = headerLocation('questionaire'); //Go back to the login page
         }  
     });  
 
@@ -89,3 +92,4 @@ $("#question-submit").click(function(e)
      
 
     
+

@@ -1,8 +1,18 @@
 <?php
         require_once 'core/ErrorReporting.php';
         require_once 'classes/Database.php';
+        require_once 'core/functions.php';
+ 
+
+        //Make sure users is not already logged in
+        session_start();
+        if(!isset($_SESSION['user_id']))
+        {
+            header('Location: login.php');
+        }
+
         
-       
+    
        
 ?>
 
@@ -18,8 +28,7 @@
     <body>
 
 
-
-
+        
     
         
     </body>
