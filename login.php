@@ -17,7 +17,7 @@ $message = '';
 //Check to make sure that the users information was submitted to the form and not empty
 if(!empty($_POST['email']) && !empty($_POST['password']))
 {
-    $database->query("SELECT id,email,name FROM users WHERE email = :email AND password = :password");
+    $database->query("SELECT id, email, first_name FROM users WHERE email = :email AND upassword = :password");
     $database->bind(":email", ($_POST['email']));
     $database->bind(":password", md5($_POST['password']));
     $database->execute();
@@ -28,7 +28,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
     if(count($results) > 0)
     {
         $_SESSION['user_id'] = $results[0]['id'];
-        $_SESSION['name'] = $results[0]['name'];
+        $_SESSION['first_name'] = $results[0]['first_name'];
         $_SESSION['email'] = $results[0]['email'];
         
         header("Location: index.php");
@@ -64,7 +64,7 @@ else{
       
       <div class="header">
           
-          <a href="login.php">Budget  Butler</a>
+          <a href="login.php">Aggie Budget</a>
       
       </div>
       

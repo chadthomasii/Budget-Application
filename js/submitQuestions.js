@@ -79,7 +79,7 @@ $("#question-submit").click(function(e)
 
             //response = $.parseJSON(response); //get the response
 
-            window.location.href = "./login.php?"; //Go back to the login page
+            window.location.href = "./login.php?please=yes"; //Go back to the login page
         }  
     });  
 

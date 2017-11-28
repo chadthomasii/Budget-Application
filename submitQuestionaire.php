@@ -19,14 +19,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         bills = :bills,
         entertainment = :entertainment,
         discretionary = :discretionary
-        WHERE usersid = :usersid");
+        WHERE user_id = :user_id");
         
         
         $database->bind(":savings",$savings);
         $database->bind(":bills",$bills);
         $database->bind(":entertainment",$entertainment);
         $database->bind(":discretionary",$discretionary);
-        $database->bind(":usersid", $_SESSION['user_id']);
+        $database->bind(":user_id", $_SESSION['user_id']);
     }
 
     if($data['submissionValue'] == 700) //Everything is selected

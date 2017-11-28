@@ -22,7 +22,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Budget Butler</title>
+        <title>Aggie Budget</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
   
@@ -42,13 +42,13 @@
         </div>
 
             <div>
-                <h1>Hi, <?php  echo ($_SESSION['name']);?></h1>
+                <h1>Hi, <?php  echo ($_SESSION['first_name']);?></h1>
             </div>
 
             <div class="heading">
                <div>
             
-                   <h2>Account Balance: $<?php  
+                   <h2>Current Check: $<?php  
                    
                     $data = $database->getBudget($_SESSION['user_id']); // get the users budget based on ID
                     echo number_format($data[0]['checkAmount'], 2); //echo their budget amount
@@ -57,17 +57,11 @@
                    
                    
                    </h2>
-               </div><br>
+               </div>
 
                
             </div>
 
-            <div id="add-money">
-
-                <input type="text" name="fname" placeholder="Enter Check Amount" class="amountInput" id="amountInput"><br>
-                <button class="calcButton">Submit</button>
-            
-            </div>
 
             
         </header>

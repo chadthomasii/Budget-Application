@@ -33,9 +33,10 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
     else
     {
         //Insert User
-        $database->query("INSERT INTO users (name,password,email,phoneNum) VALUES(:name, :password, :email, :phoneNum)");
-        $database->bind(":name", $_POST['name']);
-        $database->bind(":password", md5($_POST['password']));
+        $database->query("INSERT INTO users (first_name,last_name, upassword,email,phoneNum) VALUES(:first_name, :last_name, :password, :email, :phoneNum)");
+        $database->bind(":first_name", $_POST['first_name']);
+        $database->bind(":last_name", $_POST['last_name']);
+        $database->bind("password", md5($_POST['password']));
         $database->bind(":email", $_POST['email']);
         $database->bind(":phoneNum", $_POST['phoneNum']);
 
@@ -47,7 +48,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
             
 
             //Insert new row into spending profile
-            $database->query("INSERT INTO budgetprofile (usersid) VALUES(:usersid)");
+            $database->query("INSERT INTO budgetprofile (user_id) VALUES(:usersid)");
             $database->bind(":usersid", $database->lastInsertId());
             $_SESSION['user_id'] = $database->lastInsertId();
             $database->execute();
@@ -102,7 +103,9 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
       
       <form action="register.php" method="POST">
       
-          <input type="text" placeholder="Enter your name" name="name">
+          <input type="text" placeholder="Enter your first name" name="first_name">
+
+          <input type="text" placeholder="Enter your last name" name="last_name">
 
           <input type="email" placeholder="Enter your email" name="email">
           

@@ -7,7 +7,7 @@ class Database
 	private $host	= 'localhost';
 	private $user	= 'root';
 	private $pass	= 'root';
-	private $dbname	= 'Aggie_Budget';
+	private $dbname	= 'aggie_budget';
     
     //Database handlers, Error, and Prepeared statement handler
 	private $dbh;
@@ -105,7 +105,7 @@ class Database
     public function getBudget($id)
     {
         //Use the given id to find
-        $this->query("SELECT checkAmount FROM budgetprofile WHERE usersid = :id");
+        $this->query("SELECT checkAmount FROM budgetprofile WHERE user_id = :id");
         $this->bind(":id", $id);
         $this->execute();
         
@@ -117,7 +117,7 @@ class Database
     public function getPercentage($id,$percentage)
     {
         //Use the given id to find
-        $this->query("SELECT $percentage FROM budgetprofile WHERE usersid = :id");
+        $this->query("SELECT $percentage FROM budgetprofile WHERE user_id = :id");
         $this->bind(":id", $id);
         $this->execute();
         
