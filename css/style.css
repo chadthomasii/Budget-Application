@@ -25,7 +25,7 @@ body
     border: 10px solid #0065A6;
     outline: none;
     transition: transform .3s cubic-bezier(0, .52, 0, 1);
-    position: fixed;
+    position: absolute;
     top: 15;
     right: 15;
   }
@@ -143,13 +143,13 @@ body
     display: flex;
     justify-content: center;
     max-width: 1000px;
-    margin: 70px auto;
+    margin: 45px auto;
     
 }
 
 .card-border
 {
-    padding: 0px 70px;
+    padding: 0px 60px;
 }
 
 .card
@@ -344,6 +344,7 @@ body
             Header
 
     ********************/
+    
     .heading
     {
         display: flex;
@@ -416,7 +417,7 @@ body
         text-align: center;
         height: 20%;
         position: relative;
-        background-color: #8e44ad;
+
         border-radius: 1px;
 
     }
@@ -473,6 +474,11 @@ body
         display: inline-flex;
         font-size: 30px;
         
+    }
+
+    .heading h2
+    {
+        font-size: 3em;
     }
 
     /********************
@@ -543,9 +549,16 @@ body
 
 @media (max-width: 490px) 
 {
+
+    body
+    {
+        overflow: auto;
+    }
     /********************
             Header
     ********************/
+
+    
 
     #app
     {
@@ -554,9 +567,14 @@ body
     
     
     }
-    #showcase h1
+    #showcase .hi h1
     {
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+
+    .heading h2
+    {
+        font-size: 2.2em;
     }
 
     .search-box-wrapper
@@ -564,6 +582,11 @@ body
         
         font-size: 22px;
         
+    }
+
+    #flyoutMenu h2  
+    {
+        font-size: 4em;
     }
 
 

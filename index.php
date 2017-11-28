@@ -25,7 +25,6 @@
         <title>Aggie Budget</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
-  
         <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
     </head>
     <body>
@@ -45,7 +44,7 @@
             
         </div>
 
-            <div>
+            <div class="hi">
                 <h1>Hi, <?php  echo ($_SESSION['first_name']);?></h1>
             </div>
 
@@ -211,10 +210,11 @@
 
             function hideMenu(e)
             {
+                document.body.style.overflow = 'auto';
                 flyoutMenu.classList.remove("show");
                 e.stopPropogation();
 
-                document.body.style.overflow = 'auto';
+                
 
             }
             
