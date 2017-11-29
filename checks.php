@@ -58,22 +58,62 @@
     
                 
     </header>
+
+    <div class="results">
+
+        <h1>Checks</h1>
+        <div class="results-container">
+        <?php
+
+            //Get all of the checks for the user.
+            $database->query("SELECT amount, DATE_FORMAT(created_at, '%m-%d-%Y, %h:%i') AS created_at
+                            FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC");
+            $database->bind(":user_id", ($_SESSION['user_id']));
+            $database->execute();
+
+            $results = $database->resultSet();
+
+           
+
+            for ($i = 0; $i < count($results); $i++) 
+            {  
+                
+                echo '<div class="results-items">';
+                    echo '<div class= "results-amount results-item">' . '<h2>Check: $' . $results[$i]['amount'] . '<h2>' . '</div>';
+                
+                    echo '<div class = "results-date results-item">' .  '<h2>Date/Time: ' . $results[$i]['created_at'] . '<h2>' . '</div>';
+                echo '</div>';
+                
+                
+            }
+
+            
+        
+        ?>
+        </div>
+        
+    </div>
+
     <div id="modal">    
         <div id="modal-content"> 
-            <span id="close-button">&times;</span>
+            <span id="close-button"><span>&times;</span></span>
             <div class="amount-container">
                 <p>Enter Check Amount:</p>
                 <fieldset id="check">
-                   <input type="text" value="" name="checkInput">
+                   <input type="text" value="" name="checkInput" id="amount-input">
                 </fieldset>
 
-                <button name="submit" type="submit" id="question-submit">Submit</button>
+                <button name="submit" type="submit" id="check-submit">Submit</button>
 
-            </div>
+        </div>
     </div>
+
+        
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/add-check-modal.js"></script>
+    <script src="js/addCheck.js"></script>
         
         <script>
 
@@ -93,10 +133,13 @@
 
             function hideMenu(e)
             {
+
+                document.body.style.overflow = 'auto';
+
                 flyoutMenu.classList.remove("show");
                 e.stopPropogation();
 
-                document.body.style.overflow = 'auto';
+                
 
             }
             

@@ -15,6 +15,11 @@ $message = '';
 //Check to make sure that the users information was submitted to the form, and not empty
 if(!empty($_POST['email']) && !empty($_POST['password']))
 {
+
+    if(!empty($_POST['email']) && !empty($_POST['password']))
+    {
+    
+    }
     
     $database->query("SELECT email FROM users WHERE email = :email");
     $database->bind(":email", ($_POST['email']));
@@ -72,7 +77,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
     
     
 }
-else
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && empty($_POST['email']) && empty($_POST['password']))
 {
     $message = 'Please fill out all the mandatory fields';
 }

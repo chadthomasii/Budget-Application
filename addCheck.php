@@ -14,12 +14,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     
     
     //Update the current amount
-    $database->query("UPDATE budgetprofile
-                     SET checkAmount = :amount
-                     WHERE usersid = :usersid");
+    $database->query("INSERT INTO individual_check(amount, user_id) VALUES (:amount , :user_id)");
                      
     $database->bind(":amount", ($data['amount']));
-    $database->bind(":usersid", $_SESSION['user_id']);
+    $database->bind(":user_id", $_SESSION['user_id']);
 
     if($database->execute()) //if add echo back success, otherwise false
     {

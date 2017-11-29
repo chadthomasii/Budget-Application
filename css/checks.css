@@ -58,7 +58,7 @@ Modal
     background-color: #0065A6;
     margin: 10% auto;
     padding: 20px;
-    width: 50%;
+    width: 30%;
     height: 40%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
     animation-name: modelopen;
@@ -69,8 +69,14 @@ Modal
 
 #close-button
 {
+    display: flex;
+    align-content: center;
+    justify-content: right;
+}
+
+#close-button span
+{
     color: #ccc;
-    text-align: right;
     font-size: 30px;
     cursor: pointer;
 }
@@ -88,7 +94,7 @@ Modal
     text-align: center;
 
 }
-#close-button:hover
+#close-button span:hover
 {
     color: #fdb927;
     text-decoration: none;
@@ -110,8 +116,8 @@ fieldset
     width: 50%;
     border: 1px solid #ccc;
     background: #FFF;
-    margin: 15px  auto;
-    padding: 10px;
+    margin: 10px  auto;
+    padding: 15px;
     text-align: center;
   }
   
@@ -124,7 +130,7 @@ fieldset
     background: #fdb927;
     color: #FFF;
     margin: 0 0 5px;
-    padding: 10px;
+    padding: 20px;
     font-size: 15px;
     text-align: center;
   }
@@ -135,4 +141,51 @@ fieldset
 {
     from{opacity:0}
     to{opacity: 1}
+}
+
+
+/*
+
+Display checks
+
+*/
+
+
+.results
+{
+    color: #424242;
+}
+
+
+.results h1
+{
+    padding: 50px;
+    text-align: center;
+    font-size: 4em;
+}
+
+
+.results-items
+{
+    display: flex;
+    justify-content: space-around;
+
+    
+}
+
+.results-items:nth-child(odd) 
+{
+    background: #333333;
+    color: #fff;
+}
+
+.results h2
+{
+    font-size: 2em;
+    padding: 10px;
+}
+
+.results-item
+{
+   
 }
