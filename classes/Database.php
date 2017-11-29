@@ -102,15 +102,18 @@ class Database
         return $this->stmt->rowCount();
     }
 
-    public function getBudget($id)
+    public function getRecentCheck($id)
     {
         //Use the given id to find
-        $this->query("SELECT checkAmount FROM budgetprofile WHERE user_id = :id");
-        $this->bind(":id", $id);
+        $this->query("SELECT amount FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC LIMIT 1");
+        $this->bind(":user_id", $id);
         $this->execute();
+
+        $results = $this->resultSet();
+        $amount = $results[0]['amount'];
         
         //give back the 
-        return $this->resultSet();
+        return $amount;
 
     }
 

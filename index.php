@@ -53,8 +53,15 @@
             
                    <h2>Current Check: $<?php  
                    
-                    $data = $database->getBudget($_SESSION['user_id']); // get the users budget based on ID
-                    echo number_format($data[0]['checkAmount'], 2); //echo their budget amount
+                   $database->query("SELECT amount FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC LIMIT 1");
+                   $database->bind(":user_id", ($_SESSION['user_id']));
+                   $database->execute();
+
+                   $results = $database->resultSet();
+
+                   $amount = $results[0]['amount'];
+                   echo($amount);
+
                    
                    ?>
                    
@@ -78,7 +85,9 @@
                         <p>
                             <?php
 
-                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+
+
+                                $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
                                 $percent = $database->getPercentage($_SESSION['user_id'],'entertainment')[0]['entertainment']; //get the percentage
 
                                 
@@ -118,7 +127,7 @@
                         <p>
                             <?php
 
-                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+                                $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
                                 $percent = $database->getPercentage($_SESSION['user_id'],'bills')[0]['bills']; //get the percentage
 
                                 
@@ -157,7 +166,7 @@
                         <p>
                             <?php
 
-                                $budget = $database->getBudget($_SESSION['user_id'])[0]['checkAmount']; // Get the budget amount
+                                $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
                                 $percent = $database->getPercentage($_SESSION['user_id'],'savings')[0]['savings']; //get the percentage
 
                                 
