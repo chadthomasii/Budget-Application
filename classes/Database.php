@@ -110,10 +110,19 @@ class Database
         $this->execute();
 
         $results = $this->resultSet();
-        $amount = $results[0]['amount'];
+
+        if (count($results) <= 0)
+        {
+            return 0.00;
+        }
+        else
+        {
+            $amount = $results[0]['amount'];
+            
+            //give back the 
+            return $amount;
+        }
         
-        //give back the 
-        return $amount;
 
     }
 

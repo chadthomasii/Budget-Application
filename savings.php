@@ -20,15 +20,65 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savings</title>
+        <title>Checks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/checks.css">
         <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
     </head>
     <body>
 
+    <header id="showcase">
+    
+            <button id="roundButton"></button>
 
+            <div id="flyoutMenu">
+                <h2><a href="index.php">Home</a></h2>
+                <h2><a href="checks.php">Checks</a></h2>
+                <h2><a href="savings.php">Savings</a></h2>
+                <h2><a href="bills.php">Bills</a></h2>
+                <h2><a href="#">Settings</a></h2>
+                <h2><a href="logout.php">Logout</a></h2>
+                
+            </div>
+    
+                
+    </header>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         
+        <script>
+
+            var roundButton = document.querySelector("#roundButton");
+            var flyoutMenu = document.querySelector("#flyoutMenu");
+
+
+            roundButton.addEventListener("click", showMenu, false);
+
+            flyoutMenu.addEventListener("click", hideMenu, false);
+
+            function showMenu(e)
+            {
+                flyoutMenu.classList.add("show");
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideMenu(e)
+            {
+
+                document.body.style.overflow = 'auto';
+
+                flyoutMenu.classList.remove("show");
+                e.stopPropogation();
+
+                
+
+            }
+            
+        </script>
+        
+
     
         
     </body>

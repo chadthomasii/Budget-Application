@@ -53,15 +53,8 @@
             
                    <h2>Current Check: $<?php  
                    
-                   $database->query("SELECT amount FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC LIMIT 1");
-                   $database->bind(":user_id", ($_SESSION['user_id']));
-                   $database->execute();
-
-                   $results = $database->resultSet();
-
-                   $amount = $results[0]['amount'];
-                   echo($amount);
-
+                    $data = $database->getRecentCheck($_SESSION['user_id']); // get the users budget based on ID
+                    echo   $data //echo their budget amount
                    
                    ?>
                    
@@ -84,8 +77,6 @@
                         <h1>Entertainment</h1>
                         <p>
                             <?php
-
-
 
                                 $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
                                 $percent = $database->getPercentage($_SESSION['user_id'],'entertainment')[0]['entertainment']; //get the percentage
@@ -127,7 +118,7 @@
                         <p>
                             <?php
 
-                                $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
+                                $budget = $database->getRecentCheck($_SESSION['user_id']);
                                 $percent = $database->getPercentage($_SESSION['user_id'],'bills')[0]['bills']; //get the percentage
 
                                 
@@ -166,7 +157,7 @@
                         <p>
                             <?php
 
-                                $budget = $database->getRecentCheck($_SESSION['user_id']); // Get the budget amount
+                                $budget = $database->getRecentCheck($_SESSION['user_id']);  
                                 $percent = $database->getPercentage($_SESSION['user_id'],'savings')[0]['savings']; //get the percentage
 
                                 
