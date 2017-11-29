@@ -67,10 +67,16 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
             $message = 'Sorry, There was an issue creating your account.'; //Issue creating account message
         }
     }
-
+    
+  
     
     
 }
+else
+{
+    $message = 'Please fill out all the mandatory fields';
+}
+
 ?>
 
 
@@ -88,7 +94,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
       
       <div class="header">
           
-          <a href="index.php">Budget Butler</a>
+          <a href="index.php">Aggie Budget</a>
       
       </div>
       

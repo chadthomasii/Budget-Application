@@ -16,7 +16,8 @@ body
     font-weight: 600;
 }
 
-#roundButton {
+#roundButton 
+{
     background-color: #fdb927;
     margin-bottom: 20px;
     width: 50px;
@@ -30,14 +31,16 @@ body
     right: 15;
   }
   
-  #roundButton:hover {
+  #roundButton:hover 
+  {
     
     cursor: pointer;
     
     transform: scale(1.2, 1.2);
   }
   
-  #roundButton:active {
+  #roundButton:active 
+  {
     border-color: #003557;
     background-color: #FFF;
   }

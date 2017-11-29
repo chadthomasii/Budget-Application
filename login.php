@@ -20,6 +20,8 @@ if(!empty($_GET))
     {
         echo "Thank you for filling out the questionaire. Please log in";
     }
+
+    
     
 }
   

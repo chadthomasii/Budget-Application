@@ -20,7 +20,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Savings</title>
+        <title>Checks</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/checks.css">
@@ -41,7 +41,7 @@
                 <h2><a href="logout.php">Logout</a></h2>
                 
             </div>
-            
+
             <div>
                 <h1> Add Check </h1>
             </div>
@@ -51,13 +51,29 @@
                     <div class= "plus">
                         <h1>+</h1>
                     </div>
+
+                    
                 </div>
             </div>
     
                 
     </header>
+    <div id="modal">    
+        <div id="modal-content"> 
+            <span id="close-button">&times;</span>
+            <div class="amount-container">
+                <p>Enter Check Amount:</p>
+                <fieldset id="check">
+                   <input type="text" value="" name="checkInput">
+                </fieldset>
+
+                <button name="submit" type="submit" id="question-submit">Submit</button>
+
+            </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/add-check-modal.js"></script>
         
         <script>
 

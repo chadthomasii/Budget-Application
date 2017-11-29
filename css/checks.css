@@ -1,3 +1,8 @@
+body
+{
+    background-color: #eeeeee;
+}
+
 .button-div
 {
     margin-top: 10px;
@@ -29,7 +34,105 @@
     font-size: 1.2em;
 }
 
-.plus h1
+/*
+
+Modal
+
+*/
+#modal
+{   
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+
+}
+
+#modal-content
 {
-    
+    background-color: #0065A6;
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    height: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modelopen;
+    animation-duration: 0.5s;
+    display: flex;
+    flex-direction: column;
+}
+
+#close-button
+{
+    color: #ccc;
+    text-align: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.amount-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.amount-container p
+{
+    font-size: 2em;
+    text-align: center;
+
+}
+#close-button:hover
+{
+    color: #fdb927;
+    text-decoration: none;
+}
+
+
+fieldset 
+{
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .amount-container input[type="text"]
+  {
+    width: 50%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 15px  auto;
+    padding: 10px;
+    text-align: center;
+  }
+  
+
+  .amount-container button[type="submit"] 
+  {
+    cursor: pointer;
+    width: 50%;
+    border: none;
+    background: #fdb927;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+
+
+@keyframes modelopen
+{
+    from{opacity:0}
+    to{opacity: 1}
 }
