@@ -35,11 +35,6 @@
                     No <input type="radio" value="0" name="savings">
                 </fieldset>
 
-                <fieldset id="savings">
-                    What are you saving for?<input type="text" value="" name="what">
-                    
-                </fieldset>
-
                 Do you go out to eat, or for entertainment often?
                 <fieldset id="food">
                     Yes <input type="radio" value="food" name="food">
