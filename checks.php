@@ -36,7 +36,7 @@
                 <h2><a href="index.php">Home</a></h2>
                 <h2><a href="checks.php">Checks</a></h2>
                 <h2><a href="savings.php">Savings</a></h2>
-                <h2><a href="bills.php">Bills</a></h2>
+            
                 <h2><a href="#">Settings</a></h2>
                 <h2><a href="logout.php">Logout</a></h2>
                 
@@ -66,7 +66,7 @@
         <?php
 
             //Get all of the checks for the user.
-            $database->query("SELECT amount, DATE_FORMAT(created_at, '%m-%d-%Y, %h:%i') AS created_at
+            $database->query("SELECT amount, DATE_FORMAT(created_at, '%m-%d-%Y, %h:%i:%s') AS created_at
                             FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC");
             $database->bind(":user_id", ($_SESSION['user_id']));
             $database->execute();

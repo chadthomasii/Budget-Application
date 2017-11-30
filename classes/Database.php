@@ -138,6 +138,30 @@ class Database
 
     }
     
+    public function getCurrentSavings($id)
+    {
+        //Use the given id to find
+        $this->query("SELECT amount FROM individual_check WHERE user_id = :user_id ORDER BY created_at DESC LIMIT 1");
+        $this->bind(":user_id", $id);
+        $this->execute();
+
+        $results = $this->resultSet();
+
+        if (count($results) <= 0)
+        {
+            return 0.00;
+        }
+        else
+        {
+            $amount = $results[0]['amount'];
+            
+            //give back the 
+            return $amount;
+        }
+        
+
+    }
+
     
     
 }

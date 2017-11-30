@@ -15,63 +15,67 @@ $message = '';
 //Check to make sure that the users information was submitted to the form, and not empty
 if(!empty($_POST['email']) && !empty($_POST['password']))
 {
-
-    if(!empty($_POST['email']) && !empty($_POST['password']))
+    if(($_POST['password']) == ($_POST['confirm_password']))
     {
+        $database->query("SELECT email FROM users WHERE email = :email");
+        $database->bind(":email", ($_POST['email']));
+        $database->execute();
     
-    }
+        $results = $database->resultSet();
     
-    $database->query("SELECT email FROM users WHERE email = :email");
-    $database->bind(":email", ($_POST['email']));
-    $database->execute();
-
-    $results = $database->resultSet();
-
-    //Login success
-    if(count($results) > 0)
-    {
-        $message = "That email already exists.";
-        
-        
+        //Login success
+        if(count($results) > 0)
+        {
+            $message = "That email already exists.";
+            
+            
+        }
+    
+        else
+        {
+            //Insert User
+            $database->query("INSERT INTO users (first_name,last_name, upassword,email,phoneNum) VALUES(:first_name, :last_name, :password, :email, :phoneNum)");
+            $database->bind(":first_name", $_POST['first_name']);
+            $database->bind(":last_name", $_POST['last_name']);
+            $database->bind("password", md5($_POST['password']));
+            $database->bind(":email", $_POST['email']);
+            $database->bind(":phoneNum", $_POST['phoneNum']);
+    
+            //If statment successfully executed, display status.
+            if($database->execute())
+            {
+                $message = 'Successfully created new User.';
+    
+                
+    
+                //Insert new row into spending profile
+                $database->query("INSERT INTO budgetprofile (user_id) VALUES(:usersid)");
+                $database->bind(":usersid", $database->lastInsertId());
+                $_SESSION['user_id'] = $database->lastInsertId();
+                $database->execute();
+    
+                
+    
+                //Take them to questionaire
+                header("Location: questionaire.php");
+    
+                
+                
+    
+            }
+            else
+            {
+                $message = 'Sorry, There was an issue creating your account.'; //Issue creating account message
+            }
+        }
     }
 
     else
     {
-        //Insert User
-        $database->query("INSERT INTO users (first_name,last_name, upassword,email,phoneNum) VALUES(:first_name, :last_name, :password, :email, :phoneNum)");
-        $database->bind(":first_name", $_POST['first_name']);
-        $database->bind(":last_name", $_POST['last_name']);
-        $database->bind("password", md5($_POST['password']));
-        $database->bind(":email", $_POST['email']);
-        $database->bind(":phoneNum", $_POST['phoneNum']);
-
-        //If statment successfully executed, display status.
-        if($database->execute())
-        {
-            $message = 'Successfully created new User.';
-
-            
-
-            //Insert new row into spending profile
-            $database->query("INSERT INTO budgetprofile (user_id) VALUES(:usersid)");
-            $database->bind(":usersid", $database->lastInsertId());
-            $_SESSION['user_id'] = $database->lastInsertId();
-            $database->execute();
-
-            
-
-            //Take them to questionaire
-            header("Location: questionaire.php");
-
-            
-            
-
-        }
-        else
-        {
-            $message = 'Sorry, There was an issue creating your account.'; //Issue creating account message
-        }
+        $message = 'Sorry, your password and password confirmation did not match.';
     }
+    
+    
     
   
     

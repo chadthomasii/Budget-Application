@@ -11,7 +11,25 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     //Set the key/value pairs
     $data['amount'] = $_POST['amount'];
 
+    $database->query("SELECT * FROM savings_goals WHERE user_id = :user_id");
+    $database->bind(":user_id", $_SESSION['user_id']);
+    $database->execute();
+
+    $results = $database->resultSet();
+
     
+
+    //Check if the user has a savings profile setup, if they do insert the amount into the database
+    if (count($results) > 0)
+    {
+        $currentGoal = $results[0]['currentAmount'];
+        $database->query("UPDATE savings_goals
+                          SET currentAmount = :currentAmount
+                          WHERE user_id = :user_id");
+        $database->bind(":currentAmount", ( $data['amount']  + $currentGoal));
+        $database->bind(":user_id", $_SESSION['user_id']);
+        $database->execute();
+    }
     
     //Update the current amount
     $database->query("INSERT INTO individual_check(amount, user_id) VALUES (:amount , :user_id)");
