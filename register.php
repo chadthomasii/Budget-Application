@@ -1,5 +1,6 @@
 <?php
 require_once 'core/ErrorReporting.php';
+require_once 'core/functions.php';
 require_once 'classes/Database.php';
 
 //Make sure users is not already logged in
@@ -53,6 +54,8 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
                 $database->bind(":usersid", $database->lastInsertId());
                 $_SESSION['user_id'] = $database->lastInsertId();
                 $database->execute();
+
+                sendEmail($_POST['email']);
     
                 
     
@@ -63,6 +66,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
                 
     
             }
+
             else
             {
                 $message = 'Sorry, There was an issue creating your account.'; //Issue creating account message

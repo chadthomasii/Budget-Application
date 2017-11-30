@@ -61,7 +61,7 @@
 
     <div class="results">
 
-        <h1>Checks</h1>
+       
         <div class="results-container">
         <?php
 
