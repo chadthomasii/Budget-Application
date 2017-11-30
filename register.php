@@ -40,7 +40,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']))
             $database->bind(":last_name", $_POST['last_name']);
             $database->bind("password", md5($_POST['password']));
             $database->bind(":email", $_POST['email']);
-            $database->bind(":phoneNum", $_POST['phoneNum']);
+            $database->bind(":phoneNum", '+1' . $_POST['phoneNum']);
     
             //If statment successfully executed, display status.
             if($database->execute())
